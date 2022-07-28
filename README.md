@@ -38,3 +38,8 @@ GIVEN the user will not always have access to the internet, WHEN the user is awa
 Scenario 2: Show error when user changes the settings (city, time range)
 As a user, I should be able to know when I've changes my location so that I am able to accurately reflect what I need.
 GIVEN the user might make a mistake, WHEN they accidently change (city, time range), THEN they will be notified.
+
+FEATURE 5: DATA VISUALIZATION ---------
+Scenario 1: Show a chart with the number of upcoming events in each city
+As a user, I would love to see a chart that breaks down popular events so that I can get a solid overview.
+GIVEN that the user might want help deciding on events, WHEN they search for events, THEN they can see a graph to help them. 
