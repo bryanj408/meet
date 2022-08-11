@@ -4,7 +4,6 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { extractLocations, getEvents } from './api';
-import { mockData } from './mock-data';
 import './nprogress.css';
 
 
@@ -12,18 +11,8 @@ import './nprogress.css';
 class App extends Component {
   state = {
     events: [],
-    locations: []
-  }
-
-  updateEvents = (location) => {
-    getEvents().then((events) => {
-      const locationEvents = (location === 'all') ?
-        events :
-        events.filter((event) => event.location === location);
-      this.setState({
-        events: locationEvents
-      });
-    });
+    locations: [],
+    numberOfEvents: 32
   }
 
   componentDidMount() {
@@ -39,6 +28,17 @@ class App extends Component {
     this.mounted = false;
   }
 
+  updateEvents = (location) => {
+    getEvents().then((events) => {
+      const locationEvents = (location === 'all') ?
+        events :
+        events.filter((event) => event.location === location);
+      this.setState({
+        events: locationEvents
+      });
+    });
+  }
+
 
   render() {
     return (
@@ -50,8 +50,5 @@ class App extends Component {
     );
   }
 }
-
-
-
 
 export default App;
