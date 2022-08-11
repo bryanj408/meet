@@ -37,7 +37,6 @@ describe('<App /> integration', () => {
         AppWrapper.unmount();
       });
  
-
       test('App passes "locations" state as a prop to CitySearch', () => {
         const AppWrapper = mount(<App />);
         const AppLocationsState = AppWrapper.state('locations');
