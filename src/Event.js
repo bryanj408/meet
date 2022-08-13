@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 class Event extends Component {
+
+    state = { show: false };
+
     render() {
-        return <div></div>;
+        const { event } = this.props;
+        return (
+            <div className="event">
+
+            </div>
+        ) 
     }
 }
 
