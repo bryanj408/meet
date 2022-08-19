@@ -91,3 +91,4 @@ export const extractLocations = (events) => {
     }
     return accessToken;
 };
+
