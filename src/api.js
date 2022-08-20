@@ -55,19 +55,15 @@ export const extractLocations = (events) => {
       NProgress.done();
       return mockData;
     }
-    if (result.data) {
-        var locations = extractLocations(result.data.events);
-        localStorage.setItem('lastEvents', JSON.stringify(result.data));
-        localStorage.setItem('locations', JSON.stringify(locations));
-      }
-      if (!navigator.onLine) {
-        const data = localStorage.getItem("lastEvents");
-        NProgress.done();
-        return data?JSON.parse(events).events:[];;
-      }
-  
+
+    if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return data?JSON.parse(events).events:[];;
+    }
   
     const token = await getAccessToken();
+
     if (token) {
       removeQuery();
       const url = 'https://s98kdbslgb.execute-api.us-west-2.amazonaws.com/dev/api/get-events' + '/' + token;
