@@ -6,6 +6,7 @@ import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import './nprogress.css';
 import WelcomeScreen from './WelcomeScreen';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 
 
 
@@ -67,6 +68,17 @@ class App extends Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
+        <ScatterChart width={730} height={250}
+          margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="x" name="stature" unit="cm" />
+          <YAxis dataKey="y" name="weight" unit="kg" />
+          <ZAxis dataKey="z" range={[64, 144]} name="score" unit="km" />
+          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+          <Legend />
+          <Scatter name="A school" data={data01} fill="#8884d8" />
+          <Scatter name="B school" data={data02} fill="#82ca9d" />
+        </ScatterChart>
         <EventList events={this.state.events} />
         <NumberOfEvents />
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
